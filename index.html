@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" media="screen and (max-width:768px)" href="./css/mobile.css">
+  <link rel="stylesheet" media="screen and (min-width:769px)" href="./css/desktop.css">
+  <script src="./coi-serviceworker.js"></script>
+  <script src="./script/ffmpeg.min.js"></script>
+  <script src="./script/jszip.min.js"></script>
+  <script src="./script/dexie.min.js"></script>
+  <script src="./script/main.js"></script>
+</head>
+<body>
+  <div class="background project" id="view_project" style="display:block">
+    <button onclick="create_project()">アドオンを新規作成する</button>
+    <label>
+      <button>アドオンをインポートする</button>
+    </label>
+    <div id="projects"></div>
+  </div>
+  <div class="background project_edit" id="view_project_edit" style="display: none">
+    <div class="add_content_ui">
+      <button onclick="create_content_ui_toggle('create_content_item_ui')">アイテムを追加</button>
+      <details>
+        <summary>追加したアイテム一覧</summary>
+        <div id="added_items"></div>
+      </details>
+      <button disabled>ブロックを追加</button>
+      <details>
+        <summary>追加したブロック一覧</summary>
+        <div></div>
+      </details>
+      <button disabled>エンティティを追加</button>
+      <details>
+        <summary>追加したエンティティ一覧</summary>
+        <div></div>
+      </details>
+      <button disabled>サウンドを追加</button>
+      <details>
+        <summary>追加したサウンド一覧</summary>
+        <div></div>
+      </details>
+      <button disabled>ルートテーブルを追加</button>
+      <details>
+        <summary>追加したルートテーブル一覧</summary>
+        <div></div>
+      </details>
+      <button disabled>レシピの追加</button>
+      <details>
+        <summary>追加したレシピ一覧</summary>
+        <div></div>
+      </details>
+      <div>
+        <input type="text" placeholder="リソースパック名" id="resource_pack_name">
+        <input type="text" placeholder="リソースパックの説明" id="resource_pack_description">
+        <div class="pack_versions">
+          <input type="number" id="pack_version_1">,
+          <input type="number" id="pack_version_2">,
+          <input type="number" id="pack_version_3">
+        </div>
+        <button onclick="resource_pack_name_save()">保存</button>
+      </div>
+      <button onclick="mc_export()" class="export_button">エクスポート</button>
+    </div>
+    <div id="create_content_item_ui" class="create_content_ui_out">
+      <button onclick="create_content_ui_toggle('create_content_item_ui')">戻る</button>
+      <button onclick="input_item()">追加する</button>
+      <input type="text" placeholder="ID(英数字)" id="item_id">
+      <br>
+      <label class="item_texture">
+        <p>テクスチャ画像を選択</p>
+        <input type="file" onchange="item_texture_load(this)" style="display:none">
+        <img id="item_texture_image">
+      </label>
+      <div>
+        <div class="item_true_or_false">
+          <label>
+            <p>エンチャントされた見た目にする</p>
+            <input type="checkbox" id="item_foil">
+          </label>
+          <br>
+          <label>
+            <p>ツールのような持ち方</p>
+            <input type="checkbox" id="item_idhand_equipped">
+          </label>
+          <br>
+          <label>
+            <p>クリエイティブで持った際のブロック破壊</p>
+            <input type="checkbox" checked id="item_can_destroy_in_creative">
+          </label>
+          <br>
+          <label>
+            <p>爆発耐性を無くす</p>
+            <input type="checkbox" checked id="item_explodable">
+          </label>
+          <br>
+          <label>
+            <p>デスポーンするか</p>
+            <input type="checkbox" checked id="item_should_despawn">
+          </label>
+          <br>
+          <label>
+            <p>液体のブロック判定</p>
+            <input type="checkbox" id="item_liquid_clipped">
+          </label>
+        </div>
+        <div class="item_use_animation_ui">
+          <label>
+            <p>右クリックした際のアニメーション</p>
+            <input type="checkbox" id="item_use_animation_check" onchange="(this.checked == true) ? item_use_animation.disabled = false : item_use_animation.disabled = true">
+          </label>
+          <br>
+          <select id="item_use_animation" disabled>
+            <option value="eat">食べる</option>
+            <option value="drink">飲む</option>
+            <option value="bow">弓</option>
+            <option value="spear">トライデント</option>
+            <option value="crossbow">クロスボウ</option>
+          </select>
+        </div>
+        <div class="item_interact_event">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
