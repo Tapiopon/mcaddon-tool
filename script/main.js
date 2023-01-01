@@ -194,10 +194,10 @@ const resource_pack_name_save = () => {
   mcfile["behavior"]["manifest.json"]["header"]["name"] =
   mcfile["resource"]["manifest.json"]["header"]["name"] = resource_pack_name.value;
   
-  mcfile["behavior"]["manifest.json"]["header"]["description"]
+  mcfile["behavior"]["manifest.json"]["header"]["description"] =
   mcfile["resource"]["manifest.json"]["header"]["description"] = resource_pack_description.value;
   
-  mcfile["behavior"]["manifest.json"]["header"]["version"]
+  mcfile["behavior"]["manifest.json"]["header"]["version"] =
   mcfile["resource"]["manifest.json"]["header"]["version"] = [pack_version_1.value, pack_version_2.value, pack_version_3.value]
   update_project();
 }
