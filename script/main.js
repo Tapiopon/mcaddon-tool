@@ -215,13 +215,14 @@ const mc_export = () => {
   };
   zip.generateAsync({
     type:"blob",
+    mimeType: "application/octet-stream",
     compression: "DEFLATE",
     compressionOptions: {
       level: 9
     }
   }).then((blob) => {
     const a = document.createElement("a");
-    a.download = `test.mcpack`;
+    a.download = `${mcfile["resource"]["manifest.json"]["header"]["name"]}.mcaddon`;
     a.href = window.URL.createObjectURL(blob);
     a.click();
   });
