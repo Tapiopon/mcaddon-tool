@@ -1,11 +1,11 @@
 {
-  "theme_color": "#a5c9c1",
-  "background_color": "#2cb4ad",
+  "theme_color": "#000000",
+  "background_color": "#000000",
   "display": "standalone",
   "scope": "",
   "start_url": "index.html",
-  "name": "Tapiopon",
-  "short_name": "Tapiopon",
+  "name": "Tapiopon McAddonTool",
+  "short_name": "TMcTool",
   "icons": [
     {
       "src": "icon/512.png",
