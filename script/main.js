@@ -198,7 +198,11 @@ const resource_pack_name_save = () => {
   mcfile["resource"]["manifest.json"]["header"]["description"] = resource_pack_description.value;
   
   mcfile["behavior"]["manifest.json"]["header"]["version"] =
-  mcfile["resource"]["manifest.json"]["header"]["version"] = [pack_version_1.value, pack_version_2.value, pack_version_3.value]
+  mcfile["resource"]["manifest.json"]["header"]["version"] = [
+    Number(pack_version_1.value),
+    Number(pack_version_2.value),
+    Number(pack_version_3.value)
+  ]
   update_project();
 }
 
