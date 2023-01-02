@@ -87,6 +87,16 @@ const update_project = () => {
 
 const input_item = () => {
   if(!mcfile["behavior"]["items"]) mcfile["behavior"]["items"] = {};
+  for(let i=0;i<mcfile["files"]["item"].length;i++){
+    if(item_id.value == mcfile["files"]["item"][i]){
+      mcfile["files"]["item"] = mcfile["files"]["item"].filter((array_item)=> {
+        return array_item !== item_id.value
+      });
+      delete mcfile["behavior"]["items"][item_id.value];
+      delete mcfile["resource"]["textures"]["item_texture.json"]["texture_data"][item_id.value];
+      delete mcfile["resource"]["textures"]["tapio_tool"]["items"][item_id.value];
+    };
+  };
   mcfile["behavior"]["items"][item_id.value] = {
     "format_version": "1.16.100",
     "minecraft:item": {
@@ -188,7 +198,7 @@ const item_delete = (load_item_id) => {
   delete mcfile["resource"]["textures"]["item_texture.json"]["texture_data"][load_item_id];
   delete mcfile["resource"]["textures"]["tapio_tool"]["items"][load_item_id];
   update_project();
-}
+};
 
 const resource_pack_name_save = () => {
   mcfile["behavior"]["manifest.json"]["header"]["name"] =
