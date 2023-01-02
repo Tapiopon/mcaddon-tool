@@ -55,6 +55,18 @@
   border-radius: 15px;
 }
 
+.return_project {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 25%;
+  font-size: 20px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: solid 1px;
+  border-radius: 0;
+}
+
 .add_content_ui {
   position: relative;
   width: 100%;

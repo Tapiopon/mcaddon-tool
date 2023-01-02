@@ -236,7 +236,6 @@ window.onload = () => {
       save: 'id,contents'
     });
     db.save.get(query).then((event)=>{
-      console.log(event.contents)
       mcfile = event.contents;
       resource_pack_name.value = mcfile["resource"]["manifest.json"]["header"]["name"];
       resource_pack_description.value = mcfile["resource"]["manifest.json"]["header"]["description"];
