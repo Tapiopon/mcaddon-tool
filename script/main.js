@@ -152,6 +152,7 @@ const input_item = () => {
   document.getElementById("added_items").innerHTML +=
   `\<p\>${item_id.value}\</p\>`;
   console.log(mcfile["behavior"]["items"]);
+  location.reload();
 };
 
 const item_reset = () => {
@@ -200,6 +201,7 @@ const item_delete = (load_item_id) => {
   delete mcfile["resource"]["textures"]["item_texture.json"]["texture_data"][load_item_id];
   delete mcfile["resource"]["textures"]["tapio_tool"]["items"][load_item_id];
   update_project();
+  location.reload();
 };
 
 const resource_pack_name_save = () => {
