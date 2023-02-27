@@ -187,6 +187,8 @@ const item_load = (load_item_id) => {
     item_use_animation_check.checked = false;
     item_use_animation.disabled = true;
   }
+  
+  document.getElementById("item_texture_image").src = window.URL.createObjectURL(mcfile["resource"]["textures"]["tapio_tool"]["items"][load_item_id]);
 };
 
 const item_delete = (load_item_id) => {
